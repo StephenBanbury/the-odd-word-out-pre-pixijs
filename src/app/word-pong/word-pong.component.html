@@ -1,0 +1,26 @@
+<h2>Seek out words or phrases related to "{{seedWord}}". Avoid those that are unrelated.</h2>
+<span id="container" (document:keydown)="onKeyEvent($event)">
+  <div id="card" class="center" [style.background-color]="cardColor" (click)="onMouseEvent($event)">
+    <h1>{{message}}</h1>
+    <div *ngFor="let gameObject of gameObjects">
+        <div
+          id="{{gameObject.id}}"
+          class="flex-container ball"
+          [ngClass]="gameObject.className"
+          [ngStyle]="objectStyle(gameObject.id)"
+          (mouseenter)="onMouseEvent($event)"
+          (mouseleave)="onMouseEvent($event)"
+          [innerText]="gameObject.text"
+        ></div>
+    </div>
+  </div>
+  <!-- <div *ngFor="let related of relatedWords" [innerText]=related>    
+  </div>
+  <div *ngFor="let unrelated of unrelatedWords" [innerText]=unrelated>    
+  </div> -->
+  <!-- <div>
+    <h2 class="counter">Found target: {{ foundObject }}</h2>
+    <h2 class="counter">Hits: {{ hit }}</h2>
+    <h2 class="counter">Misses: {{ miss }}</h2>
+  </div> -->
+</span>
